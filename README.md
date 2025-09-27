@@ -64,7 +64,7 @@ BEGIN
 END;
 $$;
 
--- IF/ELSE Statment
+-- IF/ELSE Statement
 CREATE OR REPLACE PROCEDURE update_city_if_exists(p_id INT, p_city TEXT)
 LANGUAGE plpgsql
 AS $$
