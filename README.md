@@ -63,6 +63,32 @@ BEGIN
     PERFORM * FROM customers;
 END;
 $$;
+
+-- IF/ELSE Statment
+CREATE OR REPLACE PROCEDURE update_city_if_exists(p_id INT, p_city TEXT)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    cust_count INT;
+BEGIN
+    -- בודקים אם הלקוח קיים
+    SELECT COUNT(*) INTO cust_count
+    FROM customers
+    WHERE customer_id = p_id;
+
+    IF cust_count > 0 THEN
+        -- אם קיים, מעדכנים את העיר
+        UPDATE customers
+        SET city = p_city
+        WHERE customer_id = p_id;
+        RAISE NOTICE 'City updated for customer %', p_id;
+    ELSE
+        -- אם לא קיים, מציגים הודעה
+        RAISE NOTICE 'Customer with ID % does not exist', p_id;
+    END IF;
+END;
+$$;
+
 ```
 
 ---
