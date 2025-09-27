@@ -83,8 +83,9 @@ $$;
 **דוגמא:**
 
 
--- חישוב ממוצע הזמנות ללקוח
 ```sql
+-- For example
+-- חישוב ממוצע הזמנות ללקוח
 CREATE OR REPLACE FUNCTION avg_order_amount(cust_id INT)
 RETURNS NUMERIC
 LANGUAGE plpgsql
@@ -126,9 +127,9 @@ EXECUTE FUNCTION trigger_func();
 
 **דוגמאות:**
 
--- לוג על עדכון
-
 ```sql
+-- For example
+-- לוג על עדכון
 CREATE OR REPLACE FUNCTION log_update()
 RETURNS TRIGGER
 LANGUAGE plpgsql
