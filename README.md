@@ -82,8 +82,9 @@ $$;
 
 **דוגמא:**
 
-```sql
+
 -- חישוב ממוצע הזמנות ללקוח
+```sql
 CREATE OR REPLACE FUNCTION avg_order_amount(cust_id INT)
 RETURNS NUMERIC
 LANGUAGE plpgsql
@@ -125,8 +126,9 @@ EXECUTE FUNCTION trigger_func();
 
 **דוגמאות:**
 
-```sql
 -- לוג על עדכון
+
+```sql
 CREATE OR REPLACE FUNCTION log_update()
 RETURNS TRIGGER
 LANGUAGE plpgsql
@@ -181,6 +183,7 @@ WHERE ...;
 **דוגמאות:**
 
 ```sql
+-- For example
 -- לקוחות מתל אביב
 CREATE OR REPLACE VIEW tel_aviv_customers AS
 SELECT customer_id, name
@@ -269,6 +272,7 @@ FROM cte_name;
 **דוגמאות:**
 
 ```sql
+-- For example
 -- לקוחות מתל אביב
 WITH tel_aviv_customers AS (
     SELECT * FROM customers WHERE city = 'Tel Aviv'
