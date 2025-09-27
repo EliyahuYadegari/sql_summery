@@ -227,12 +227,31 @@ FROM products;
 ```
 
 2. **RANK()** – דירוג עם דילוגים בשוויון.
+
+```sql
+SELECT product_name, price,
+       RANK() OVER (
+           PARTITION BY category_id
+           ORDER BY price DESC
+       ) AS rnk
+FROM products;
+```
+
 3. **DENSE_RANK()** – דירוג בלי דילוגים.
 
 ```sql
 SELECT product_name, price,
        RANK() OVER(ORDER BY price DESC) AS rnk,
        DENSE_RANK() OVER(ORDER BY price DESC) AS dense_rnk
+FROM products;
+```
+
+דוגמה לשילוב RANK ו‑DENSE_RANK:
+
+```sql
+SELECT product_name, price,
+       RANK() OVER (ORDER BY price DESC) AS rnk,
+       DENSE_RANK() OVER (ORDER BY price DESC) AS dense_rnk
 FROM products;
 ```
 
