@@ -13,8 +13,13 @@
 CREATE OR REPLACE PROCEDURE proc_name(param1 TYPE, param2 TYPE)
 LANGUAGE plpgsql
 AS $$
+DECLARE
+    var1 TYPE;         -- משתנה לדוגמה
+    var2 TYPE := 0;    -- משתנה עם ערך התחלתי
 BEGIN
-    -- SQL statements
+    -- SQL statements אפשר להשתמש במשתנים שהצהרנו עליהם
+    var1 := param1 + param2;
+    RAISE NOTICE 'The result is %', var1;
 END;
 $$;
 ```
